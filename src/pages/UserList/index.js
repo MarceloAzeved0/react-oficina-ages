@@ -1,8 +1,7 @@
-import React from 'react';
-
-// import { Container } from './styles';
+import React, { useState, useEffect} from 'react';
 
 function UserList() {
+  const [users, setUsers] = useState([]);
   return (
     <h1>teste userList</h1>
   );

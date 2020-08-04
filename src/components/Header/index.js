@@ -4,9 +4,11 @@ import './styles.css';
 
 function Header() {
   return (
-    <div className="header">
-      <img className="logoAges" src={AGES} alt="Logo Ages" />
-    </div>
+    <header className="header">
+      <div className="header-content">
+        <img className="logoAges" src={AGES} alt="Logo Ages" />
+      </div>
+    </header>
   );
 }
 

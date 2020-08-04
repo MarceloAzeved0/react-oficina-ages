@@ -1,0 +1,11 @@
+ .header{
+  background: #F5F6DC;
+  height: 60px;
+  border-bottom: 2px solid #EB8023;
+}
+
+.logoAges{
+  height: 50px;
+  width: 160px;
+  padding-left: 10%;
+}

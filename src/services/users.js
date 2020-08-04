@@ -1,47 +1,46 @@
-import api from '../services';
+import api from "../services";
 
 export const getAllUsers = async (query) => {
-  try{
-    const { data } = await api.get(`/users${query || ''}`);
+  try {
+    const { data } = await api.get(`/user${query || ""}`);
     return data;
-  }catch(error){
+  } catch (error) {
     throw error;
   }
 };
 
-export const getUserById = async (id) => {
-  try{
-    const { data } = await api.get(`/users/${id}`);
+export const getUserById = async (userId) => {
+  try {
+    const { data } = await api.get(`/user/${userId}`);
     return data;
-  }catch(error){
+  } catch (error) {
     throw error;
   }
 };
 
 export const updateUser = async (id, user) => {
-  try{
-    const { data } = await api.put(`/users/${id}`, { user });
+  try {
+    const { data } = await api.put(`/user/${id}`, { user });
     return data;
-  }catch(error){
+  } catch (error) {
     throw error;
   }
 };
 
-
-export const deleteUser = async (id) => {
-  try{
-    const { data } = await api.delete(`/users/${id}`);
+export const deleteUser = async (userId) => {
+  try {
+    const { data } = await api.delete(`/user/${userId}`);
     return data;
-  }catch(error){
+  } catch (error) {
     throw error;
   }
 };
 
 export const createUser = async (user) => {
-  try{
-    const { data } = await api.post(`/users`, { user });
+  try {
+    const { data } = await api.post(`/user`, { user });
     return data;
-  }catch(error){
+  } catch (error) {
     throw error;
   }
 };

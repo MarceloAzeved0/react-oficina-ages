@@ -1,0 +1,81 @@
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+.contentForm {
+  display: flex;
+  flex: 1;
+  min-height: 100%;
+}
+
+.buttonCancel {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #e74c3c;
+
+  border: 1px solid #e74c3c;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #fff;
+  width: 120px;
+  height: 40px;
+}
+
+.buttonSubmit {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #fff;
+  margin-left: 24px;
+  border: 1px solid #3c5daa;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #3c5daa;
+  width: 120px;
+  height: 40px;
+}
+
+.line {
+  border: 1px solid #cccccc;
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+
+.footerForm {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.rowFields {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.radioFields {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.labelInput {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  color: #212529;
+}

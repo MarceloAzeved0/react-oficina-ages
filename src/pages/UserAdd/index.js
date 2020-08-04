@@ -1,9 +1,11 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import './styles.css';
 
 function UserAdd() {
-  return (<h1>Teste UserAdd</h1>);
+  return (
+    <h1>Teste UserAdd</h1>
+  );
 }
 
 export default UserAdd;

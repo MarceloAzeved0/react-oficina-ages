@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+.wrapperFilters {
+  width:80%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding: 24px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.rowFilters{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rowUsers{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerUsers{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.registerButton{
+  background: #3C5DAA;
+  border-radius: 10px;
+  outline: inherit;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  cursor: pointer;
+  color: #FFFFFF;
+
+  height: 40px;
+}
+
+.contentUsers{
+  width: 80%;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.imageProfile{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+} 
+
+.table-users th{
+  text-align: left;
+
+  font-weight: bold;
+  color: #212529;
+}
+
+.table-users th, td > p{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.table-users th, td{
+  width: 19%;
+  height: 50px;
+}
+
+.table-users tr:hover td{
+  background-color: #f2f2f2;
+}
+
+.badge{
+  border-radius: 5px;
+  width: 60px;
+  height: 26;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge p {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.title{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  
+  color: #000000;
+}
+
+.line{
+  border: 1px solid #CCCCCC;
+  margin-bottom: 24px;
+}

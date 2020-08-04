@@ -10,11 +10,10 @@ function FormField({
   name,
   value,
   onChange,
-  width,
   placeholder,
 }) {
   return (
-    <div style={{ maxWidth: width }} className="inputWrapper">
+    <div className="inputWrapper">
       {label && <label className="label">{label}</label>}
       <input
         min={min}

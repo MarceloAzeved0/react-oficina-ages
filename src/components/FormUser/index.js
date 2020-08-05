@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import FormField from '../../components/FormField';
 import Select from '../../components/Select';
 import axios from "axios";
-import "./styles.css";
 
 function FormUser({ 
   goBack,

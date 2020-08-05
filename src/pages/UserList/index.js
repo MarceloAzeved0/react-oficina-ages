@@ -4,8 +4,13 @@ import { getAllUsers, deleteUser } from '../../services/users';
 import FormField from '../../components/FormField';
 import Select from '../../components/Select';
 
+import { toast } from 'react-toastify';
+
 import EditIcon from '../../assets/icons/EditButton.svg';
 import RemoveIcon from '../../assets/icons/DeleteButton.svg'
+
+import Loader from '../../components/Loader';
+import teste from '../../assets/teste.png';
 
 function UserList({ history }) {
   const [users, setUsers] = useState([]);
@@ -13,6 +18,14 @@ function UserList({ history }) {
   const [searchStatus, setSearchStatus] = useState('');
   const [searchCourse, setSearchCourse] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const deleteUserRow = async (id) => {
+    const data = await deleteUser(id);
+    if(data.success){
+      toast(`Usuário ${id} excluído com sucesso!`);
+      getUsers();
+    }
+  }
 
   const getUsers = async () => {
     setLoading(true);
@@ -24,6 +37,32 @@ function UserList({ history }) {
 
     setLoading(false);
   } 
+
+  const getRows = (user) => (
+    <tr key={user.id}>
+      <td>
+        <img className="profile-image" src={user.image || teste} alt="Imagem do usuário" />
+      </td>
+      <td>{user.name}</td>
+      <td>{user.register}</td>
+      <td>{user.course}</td>
+      <td>
+        { user.status ? (
+          <span className="badge active-badge">Ativo</span>
+        ) : (
+          <span className="badge inactive-badge">Inativo</span>
+        )}
+      </td>
+      <td>
+        <td>
+          <img onClick={() => history.push(`user/${user.id}`)} src={EditIcon} alt="Editar Usuário"/>
+        </td>
+        <td>
+          <img onClick={() => deleteUserRow(user.id)} src={RemoveIcon} alt="Remover Usuário"/>
+        </td>
+      </td>
+    </tr> 
+  )
 
   useEffect(() => {
     getUsers();
@@ -70,6 +109,30 @@ function UserList({ history }) {
             ]}
           />
         </div>
+      </div>
+
+      <div className="card">
+        <div className="card-header">
+          <h2>Alunos Cadastrados</h2>
+          <button type="button" className="primary-button" onClick={() => history.push('register/user')}>
+            Cadastrar
+          </button>
+        </div>
+        {loading ? (
+          <Loader />
+        ):(
+            <table>
+              <thead>
+                <th></th>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Curso</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </thead>
+              <tbody>{ users.map((user) => getRows(user))}</tbody>
+            </table>
+        )}
       </div>
     </div>
   );

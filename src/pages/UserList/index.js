@@ -9,7 +9,7 @@ import RemoveIcon from '../../assets/icons/DeleteButton.svg'
 
 function UserList({ history }) {
   return (
-    <h1>teste user edit</h1>
+    <h1>teste user list</h1>
   );
 }
 

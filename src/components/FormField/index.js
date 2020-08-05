@@ -14,7 +14,7 @@ function FormField({
 }) {
   return (
     <div className="inputWrapper">
-      {label && <label className="label">{label}</label>}
+      {label && <label>{label}</label>}
       <input
         min={min}
         max={max}

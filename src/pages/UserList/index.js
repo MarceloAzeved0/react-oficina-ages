@@ -30,7 +30,6 @@ function UserList({ history }) {
   const getUsers = async (query) => {
     setLoading(true);
     const data = await getAllUsers(query);
-    console.log('data', data);
     if(data.success){
       setUsers(data.users);
     }

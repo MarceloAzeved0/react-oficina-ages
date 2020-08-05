@@ -1,18 +1,16 @@
 import React from 'react';
 
-import './styles.css';
-
 function Select ({ 
-  options, value, onChange, label, width, name
+  options, value, onChange, label, name
 }) {
   return (
-    <div style={{ maxWidth: width }} className='selectWrapper' >
+    <div className='selectWrapper' >
       {label &&
-        <label className='label'>
+        <label>
           {label}
         </label>
       }
-      <select value={value} onChange={onChange} className='selectStyled' name={name}>
+      <select value={value} onChange={onChange} name={name}>
         <option value=''>Todos</option>
         {options.map((option, index) => (
           <option key={index} value={option.value}>{option.label}</option>

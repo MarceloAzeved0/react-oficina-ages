@@ -1,11 +1,162 @@
-body {
-  background: #f5f5f5;
+* {
+  box-sizing: border-box;
+  font-family: Roboto, Arial, sans-serif;
+  color: #212529;
 }
 
-button{
+body {
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #f5f6dc;
+  border-bottom: 2px solid #eb8023;
+}
+
+#upload {
+  width: 160px;
+  height: 160px;
+  background: #c4c4c4;
+  border-radius: 50%;
   cursor: pointer;
 }
 
-button:hover{
-  opacity: 0.7;
+.mr-16 {
+  margin-right: 16px;
+}
+
+.header-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-content img {
+  width: auto;
+  height: 50px;
+}
+
+button {
+  min-width: 120px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.field-group {
+  width: 100%;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #212529;
+}
+
+.primary-button {
+  border: 0;
+  background-color: #3c5daa;
+  color: #ffffff;
+}
+
+.cancel-button {
+  border: 1px solid #e74c3c;
+  background-color: transparent;
+  color: #e74c3c;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+input,
+select {
+  width: 100%;
+  margin: 8px 0 16px 0;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+input[type='radio'] {
+  width: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 48px auto;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 48px;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.form-body {
+  display: flex;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row div + div {
+  margin-left: 16px;
+}
+
+.badge {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.active-badge {
+  background-color: #c9f7f5;
+  color: #1bc5bd;
+}
+
+.inactive-badge {
+  background-color: #ffe2e5;
+  color: #f64e60;
+}
+
+.form-footer {
+  text-align: right;
 }

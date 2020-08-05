@@ -27,9 +27,9 @@ function UserList({ history }) {
     }
   }
 
-  const getUsers = async () => {
+  const getUsers = async (query) => {
     setLoading(true);
-    const data = await getAllUsers();
+    const data = await getAllUsers(query);
     console.log('data', data);
     if(data.success){
       setUsers(data.users);
@@ -65,8 +65,38 @@ function UserList({ history }) {
   )
 
   useEffect(() => {
-    getUsers();
-  }, [])
+    const searching = setTimeout(() =>{
+      let filterValues = [];
+      if(searchName){
+        filterValues.push(`name_like=${searchName}`)
+      }
+
+      if(searchStatus){
+        filterValues.push(`status_like=${searchStatus}`)
+      }
+
+      if(searchCourse){
+        filterValues.push(`course_like=${searchCourse}`)
+      }
+      
+      let query = '';
+
+      filterValues.forEach((filterValue, i) => {
+        if(i===0){
+          query += `?${filterValue}`;
+        }else{
+          query += `&${filterValue}`;
+        }
+      });
+
+      getUsers(query);
+    }, 500);
+
+    return () => {
+      clearTimeout(searching);
+    }
+    
+  }, [searchName, searchStatus, searchCourse])
 
   return (
     <div className="container">

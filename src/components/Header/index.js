@@ -1,6 +1,5 @@
 import React from 'react';
 import AGES from '../../assets/AGES.png';
-import './styles.css';
 
 function Header() {
   return (

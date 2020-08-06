@@ -2,81 +2,87 @@ import React, { useState, useEffect } from 'react';
 
 import FormField from '../../components/FormField';
 import Select from '../../components/Select';
-import axios from "axios";
+import axios from 'axios';
 
-function FormUser({ 
+function FormUser({
   goBack,
   initialValues,
   onSubmit,
   buttonSubmitText,
   buttonCancelText,
- }) {
+}) {
+  const [avatar, setAvatar] = useState('');
+
   const [formValues, setFormValues] = useState([
-    { name: "name", value: initialValues.name || "" },
-    { name: "register", value: initialValues.register || "" },
-    { name: "day", value: initialValues.day || "" },
-    { name: "course", value: initialValues.course || "" },
-    { name: "month", value: initialValues.month || "" },
-    { name: "year", value: initialValues.year || "" },
-    { name: "cep", value: initialValues.cep || "" },
-    { name: "address", value: initialValues.address || "" },
-    { name: "number", value: initialValues.number || "" },
-    { name: "address_detail", value: initialValues.address_detail || "" },
-    { name: "district", value: initialValues.district || "" },
-    { name: "status", value: initialValues.status },
+    { name: 'name', value: initialValues.name || '' },
+    { name: 'register', value: initialValues.register || '' },
+    { name: 'day', value: initialValues.day || '' },
+    { name: 'course', value: initialValues.course || '' },
+    { name: 'month', value: initialValues.month || '' },
+    { name: 'year', value: initialValues.year || '' },
+    { name: 'cep', value: initialValues.cep || '' },
+    { name: 'address', value: initialValues.address || '' },
+    { name: 'number', value: initialValues.number || '' },
+    { name: 'address_detail', value: initialValues.address_detail || '' },
+    { name: 'district', value: initialValues.district || '' },
+    { name: 'status', value: initialValues.status },
   ]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {
-      name: formValues.find((value) => value.name === "name").value,
-      register: formValues.find((value) => value.name === "register").value,
-      course: formValues.find((value) => value.name === "course").value,
-      birthDate: `${formValues.find((value) => value.name === "year").value}-${
-        formValues.find((value) => value.name === "month").value
-      }-${formValues.find((value) => value.name === "day").value}`,
-      cep: formValues.find((value) => value.name === "cep").value,
-      address: formValues.find((value) => value.name === "address").value,
-      number: formValues.find((value) => value.name === "number").value,
+      name: formValues.find((value) => value.name === 'name').value,
+      register: formValues.find((value) => value.name === 'register').value,
+      course: formValues.find((value) => value.name === 'course').value,
+      birthDate: `${formValues.find((value) => value.name === 'year').value}-${
+        formValues.find((value) => value.name === 'month').value
+      }-${formValues.find((value) => value.name === 'day').value}`,
+      cep: formValues.find((value) => value.name === 'cep').value,
+      address: formValues.find((value) => value.name === 'address').value,
+      number: formValues.find((value) => value.name === 'number').value,
       address_detail: formValues.find(
-        (value) => value.name === "address_detail"
+        (value) => value.name === 'address_detail'
       ).value,
-      district: formValues.find((value) => value.name === "district").value,
-      status: formValues.find((value) => value.name === "status").value,
-      image: "/assets/teste.png",
+      district: formValues.find((value) => value.name === 'district').value,
+      status: formValues.find((value) => value.name === 'status').value,
+      image: avatar,
     };
     onSubmit(newUser);
   };
 
   const onChange = (name, value) => {
-    let filterFormValues = formValues.filter((formValue) =>
-      formValue.name !== name
+    let filterFormValues = formValues.filter(
+      (formValue) => formValue.name !== name
     );
-    
-    filterFormValues.push({ name, value})
+
+    filterFormValues.push({ name, value });
     setFormValues(filterFormValues);
   };
 
-  const onChangeByCep = async(value) => {
+  const onChangeByCep = async (value) => {
     const { data } = await axios.get(`https://viacep.com.br/ws/${value}/json/`);
-    if(data){
-      let filterFormValues = formValues.filter((formValue) =>
-        formValue.name !== 'district' &&
-        formValue.name !== 'address_detail' &&
-        formValue.name !== 'number' &&
-        formValue.name !== 'address' &&
-        formValue.name !== 'cep' 
+    if (data) {
+      let filterFormValues = formValues.filter(
+        (formValue) =>
+          formValue.name !== 'district' &&
+          formValue.name !== 'address_detail' &&
+          formValue.name !== 'number' &&
+          formValue.name !== 'address' &&
+          formValue.name !== 'cep'
       );
 
-      filterFormValues.push({ name: 'district', value: data.bairro});
-      filterFormValues.push({ name: 'address_detail', value: data.complemento});
-      filterFormValues.push({ name: 'number', value: ''});
-      filterFormValues.push({ name: 'address', value: data.logradouro});
-      filterFormValues.push({ name: 'cep', value: data.cep});
+      filterFormValues.push({ name: 'district', value: data.bairro });
+      filterFormValues.push({
+        name: 'address_detail',
+        value: data.complemento,
+      });
+      filterFormValues.push({ name: 'number', value: '' });
+      filterFormValues.push({ name: 'address', value: data.logradouro });
+      filterFormValues.push({ name: 'cep', value: data.cep });
 
       setFormValues(filterFormValues);
     }
-  }
+  };
 
   return (
     <form onSubmit={(e) => handleSubmit(e, formValues)}>

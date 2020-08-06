@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { getAllUsers, deleteUser } from '../../services/users';
 
 import FormField from '../../components/FormField';
@@ -7,7 +7,7 @@ import Select from '../../components/Select';
 import { toast } from 'react-toastify';
 
 import EditIcon from '../../assets/icons/EditButton.svg';
-import RemoveIcon from '../../assets/icons/DeleteButton.svg'
+import RemoveIcon from '../../assets/icons/DeleteButton.svg';
 
 import Loader from '../../components/Loader';
 import teste from '../../assets/teste.png';
@@ -21,32 +21,36 @@ function UserList({ history }) {
 
   const deleteUserRow = async (id) => {
     const data = await deleteUser(id);
-    if(data.success){
+    if (data.success) {
       toast(`Usuário ${id} excluído com sucesso!`);
       getUsers();
     }
-  }
+  };
 
   const getUsers = async (query) => {
     setLoading(true);
     const data = await getAllUsers(query);
-    if(data.success){
+    if (data.success) {
       setUsers(data.users);
     }
 
     setLoading(false);
-  } 
+  };
 
   const getRows = (user) => (
     <tr key={user.id}>
       <td>
-        <img className="profile-image" src={user.image || teste} alt="Imagem do usuário" />
+        <img
+          className="profile-image"
+          src={user.image ? user.image : teste}
+          alt="Imagem do usuário"
+        />
       </td>
       <td>{user.name}</td>
       <td>{user.register}</td>
       <td>{user.course}</td>
       <td>
-        { user.status ? (
+        {user.status ? (
           <span className="badge active-badge">Ativo</span>
         ) : (
           <span className="badge inactive-badge">Inativo</span>
@@ -54,36 +58,44 @@ function UserList({ history }) {
       </td>
       <td>
         <td>
-          <img onClick={() => history.push(`user/${user.id}`)} src={EditIcon} alt="Editar Usuário"/>
+          <img
+            onClick={() => history.push(`user/${user.id}`)}
+            src={EditIcon}
+            alt="Editar Usuário"
+          />
         </td>
         <td>
-          <img onClick={() => deleteUserRow(user.id)} src={RemoveIcon} alt="Remover Usuário"/>
+          <img
+            onClick={() => deleteUserRow(user.id)}
+            src={RemoveIcon}
+            alt="Remover Usuário"
+          />
         </td>
       </td>
-    </tr> 
-  )
+    </tr>
+  );
 
   useEffect(() => {
-    const searching = setTimeout(() =>{
+    const searching = setTimeout(() => {
       let filterValues = [];
-      if(searchName){
-        filterValues.push(`name_like=${searchName}`)
+      if (searchName) {
+        filterValues.push(`name_like=${searchName}`);
       }
 
-      if(searchStatus){
-        filterValues.push(`status_like=${searchStatus}`)
+      if (searchStatus) {
+        filterValues.push(`status_like=${searchStatus}`);
       }
 
-      if(searchCourse){
-        filterValues.push(`course_like=${searchCourse}`)
+      if (searchCourse) {
+        filterValues.push(`course_like=${searchCourse}`);
       }
-      
+
       let query = '';
 
       filterValues.forEach((filterValue, i) => {
-        if(i===0){
+        if (i === 0) {
           query += `?${filterValue}`;
-        }else{
+        } else {
           query += `&${filterValue}`;
         }
       });
@@ -93,9 +105,8 @@ function UserList({ history }) {
 
     return () => {
       clearTimeout(searching);
-    }
-    
-  }, [searchName, searchStatus, searchCourse])
+    };
+  }, [searchName, searchStatus, searchCourse]);
 
   return (
     <div className="container">
@@ -121,8 +132,8 @@ function UserList({ history }) {
             label="Curso"
             onChange={(e) => setSearchCourse(e.target.value)}
             options={[
-              { label: "React", value: "React" },
-              { label: "Node", value: "Node" },
+              { label: 'React', value: 'React' },
+              { label: 'Node', value: 'Node' },
             ]}
           />
 
@@ -133,8 +144,8 @@ function UserList({ history }) {
             label="Status"
             onChange={(e) => setSearchStatus(e.target.value)}
             options={[
-              { label: "Ativo", value: true },
-              { label: "Inativo", value: false },
+              { label: 'Ativo', value: true },
+              { label: 'Inativo', value: false },
             ]}
           />
         </div>
@@ -143,24 +154,28 @@ function UserList({ history }) {
       <div className="card">
         <div className="card-header">
           <h2>Alunos Cadastrados</h2>
-          <button type="button" className="primary-button" onClick={() => history.push('register/user')}>
+          <button
+            type="button"
+            className="primary-button"
+            onClick={() => history.push('register/user')}
+          >
             Cadastrar
           </button>
         </div>
         {loading ? (
           <Loader />
-        ):(
-            <table>
-              <thead>
-                <th></th>
-                <th>Nome</th>
-                <th>Matrícula</th>
-                <th>Curso</th>
-                <th>Status</th>
-                <th>Ações</th>
-              </thead>
-              <tbody>{ users.map((user) => getRows(user))}</tbody>
-            </table>
+        ) : (
+          <table>
+            <thead>
+              <th></th>
+              <th>Nome</th>
+              <th>Matrícula</th>
+              <th>Curso</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </thead>
+            <tbody>{users.map((user) => getRows(user))}</tbody>
+          </table>
         )}
       </div>
     </div>

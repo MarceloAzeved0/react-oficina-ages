@@ -18,6 +18,15 @@ header {
   border-bottom: 2px solid #eb8023;
 }
 
+input[type='radio'] {
+  margin-right: 8px;
+}
+
+.inputWrapper,
+.selectWrapper {
+  width: 100%;
+}
+
 #upload {
   width: 160px;
   height: 160px;

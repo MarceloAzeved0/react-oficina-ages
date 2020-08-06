@@ -259,8 +259,6 @@ function FormUser({
         </button>
         <button className="primary-button">{buttonSubmitText}</button>
       </div>
-
-      <img src="asdasdasdasd" />
     </form>
   );
 }

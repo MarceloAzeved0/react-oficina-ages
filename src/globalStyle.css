@@ -169,3 +169,19 @@ input[type='radio'] {
 .form-footer {
   text-align: right;
 }
+
+.upload {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.upload img {
+  width: 186px;
+  height: 186px;
+  border-radius: 50%;
+  border: 5px solid #eb8023;
+}
+
+.upload input {
+  display: none;
+}

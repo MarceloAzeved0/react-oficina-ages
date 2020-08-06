@@ -1,8 +1,8 @@
-import api from "../services";
+import api from '../services';
 
 export const getAllUsers = async (query) => {
   try {
-    const { data } = await api.get(`/user${query || ""}`);
+    const { data } = await api.get(`/user${query || ''}`);
     return data;
   } catch (error) {
     throw error;
@@ -39,6 +39,15 @@ export const deleteUser = async (userId) => {
 export const createUser = async (user) => {
   try {
     const { data } = await api.post(`/user`, { user });
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const updateAvatar = async (userId, formData) => {
+  try {
+    const { data } = await api.patch(`/user/${userId}/image`, formData);
     return data;
   } catch (error) {
     throw error;

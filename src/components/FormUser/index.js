@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import FormField from '../../components/FormField';
 import Select from '../../components/Select';
+import AvatarUpload from '../../components/AvatarUpload';
 import axios from 'axios';
 
 function FormUser({
@@ -248,7 +249,9 @@ function FormUser({
             <label for="inactive">Inativo</label>
           </div>
         </div>
-        {/* <AvatarUpload user={initialValues} /> */}
+        {buttonSubmitText === 'Alterar' && (
+          <AvatarUpload setAvatar={setAvatar} user={initialValues} />
+        )}
       </div>
       <div className="form-footer">
         <button className="cancel-button mr-16" onClick={goBack}>
@@ -256,6 +259,8 @@ function FormUser({
         </button>
         <button className="primary-button">{buttonSubmitText}</button>
       </div>
+
+      <img src="asdasdasdasd" />
     </form>
   );
 }

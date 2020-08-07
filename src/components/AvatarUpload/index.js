@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { updateAvatar } from '../../services/users';
 import { toast } from 'react-toastify';
 
+import './styles.css';
+
 import teste from '../../assets/teste.png';
 
 function AvatarUpload({ setAvatar, user }) {

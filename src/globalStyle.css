@@ -162,18 +162,6 @@ input[type='radio'] {
   text-align: right;
 }
 
-.upload img {
-  width: 186px;
-  height: 186px;
-  border-radius: 50%;
-  border: 5px solid #eb8023;
-  cursor: pointer;
-}
-
-.upload input {
-  display: none;
-}
-
 @media screen and (max-width: 320px) {
   .form-row {
     flex-direction: column;

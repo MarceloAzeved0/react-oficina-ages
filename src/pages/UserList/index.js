@@ -39,7 +39,7 @@ function UserList({ history }) {
 
   const getRows = (user) => (
     <tr key={user.id}>
-      <td>
+      <td className="table-image">
         <img
           className="profile-image"
           src={user.image ? user.image : teste}
@@ -167,7 +167,7 @@ function UserList({ history }) {
         ) : (
           <table>
             <thead>
-              <th></th>
+              <th className="table-header-image"></th>
               <th>Nome</th>
               <th>Matrícula</th>
               <th>Curso</th>

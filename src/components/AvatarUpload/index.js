@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { updateAvatar } from '../../services/users';
 import { toast } from 'react-toastify';
 
+import teste from '../../assets/teste.png';
+
 function AvatarUpload({ setAvatar, user }) {
-  const [image, setImage] = useState(user.image);
+  const [image, setImage] = useState(user.image || teste);
 
   async function handleAvatarChange(event) {
     if (!event.target.files) return;

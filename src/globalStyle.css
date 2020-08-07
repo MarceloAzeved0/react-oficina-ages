@@ -27,14 +27,6 @@ input[type='radio'] {
   width: 100%;
 }
 
-#upload {
-  width: 160px;
-  height: 160px;
-  background: #c4c4c4;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 .mr-16 {
   margin-right: 16px;
 }
@@ -170,18 +162,130 @@ input[type='radio'] {
   text-align: right;
 }
 
-.upload {
-  align-self: flex-start;
-  cursor: pointer;
-}
-
 .upload img {
   width: 186px;
   height: 186px;
   border-radius: 50%;
   border: 5px solid #eb8023;
+  cursor: pointer;
 }
 
 .upload input {
   display: none;
+}
+
+@media screen and (max-width: 320px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-row .inputWrapper,
+  .form-row .selectWrapper {
+    margin: 0;
+  }
+
+  .form-footer {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .form-footer button {
+    width: 100%;
+  }
+
+  .form-footer .cancel-button {
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .form-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cancel-button {
+    background: #e74c3c;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form-body {
+    flex-direction: column-reverse;
+  }
+
+  .upload {
+    align-self: center;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+
+  .card {
+    overflow-y: auto;
+  }
+
+  .card-header {
+    flex-direction: column;
+  }
+
+  .card-header button {
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .table-header-image,
+  .table-image {
+    display: none;
+  }
+
+  .badge {
+    padding: 0;
+  }
+
+  .active-badge,
+  .inactive-badge {
+    background: transparent;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html,
+  label,
+  button,
+  input,
+  select {
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 12px;
+  }
+
+  .card-header h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  header {
+    height: 60px;
+  }
+
+  .header-content {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .header-content img {
+    height: 30px;
+  }
+
+  .container {
+    margin: 24px 16px;
+  }
+
+  .card {
+    margin-bottom: 24px;
+  }
 }
